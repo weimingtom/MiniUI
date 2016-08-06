@@ -124,7 +124,8 @@ namespace luabind { namespace detail
 
 #endif // LUABIND_CALL_HPP_INCLUDED
 
-#elif BOOST_PP_ITERATION_FLAGS() == 1
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 1
 
 	template<
 		class C
@@ -253,7 +254,8 @@ namespace luabind { namespace detail
 		return maybe_yield<Policies>::apply(L, nret);
 	}
 
-#elif BOOST_PP_ITERATION_FLAGS() == 2
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 2
 
 	template<
 		class C
@@ -368,7 +370,8 @@ namespace luabind { namespace detail
 		return maybe_yield<Policies>::apply(L, nret);
 	}
 
-#elif BOOST_PP_ITERATION_FLAGS() == 3
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 3
 
 	template<
 		class WrappedClass
@@ -420,5 +423,8 @@ namespace luabind { namespace detail
 		return returns<R>::call(f, (WrappedClass*)0, L, (Policies*)0);
 	}
 
+#endif
+#endif
+#endif
 #endif
 

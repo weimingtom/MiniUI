@@ -20,6 +20,7 @@
 
 #include "TextureManager.h"
 #include "../Host/IResourceLoader.h"
+#include <stdio.h>
 
 using namespace MiniUI::Host;
 using namespace std;

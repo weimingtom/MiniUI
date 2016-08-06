@@ -309,7 +309,8 @@ namespace luabind
 
 #endif // LUABIND_FUNCTION_HPP_INCLUDED
 
-#elif BOOST_PP_ITERATION_FLAGS() == 1
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 1
 
 // overloaded template funtion that initializes the parameter list
 // called m_params and the m_arity member.
@@ -333,7 +334,8 @@ overload_rep(R(*f)(BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), A)), Policies*)
 #undef LUABIND_POLICY_DECL
 #undef LUABIND_ARITY
 
-#elif BOOST_PP_ITERATION_FLAGS() == 2
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 2
 
 template<class Policies BOOST_PP_COMMA_IF(BOOST_PP_ITERATION()) BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), class A)>
 static int call(T(*f)(BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), A)), lua_State* L, const Policies*)
@@ -366,7 +368,8 @@ static int call(T(*f)(BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), A)), lua_State*
 
 
 
-#elif BOOST_PP_ITERATION_FLAGS() == 3
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 3
 
 template<class Policies BOOST_PP_COMMA_IF(BOOST_PP_ITERATION()) BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), class A)>
 static int call(void(*f)(BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), A)), lua_State* L, const Policies*)
@@ -395,7 +398,8 @@ static int call(void(*f)(BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), A)), lua_Sta
 }
 
 
-#elif BOOST_PP_ITERATION_FLAGS() == 4
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 4
 
 template<class Policies, class R BOOST_PP_COMMA_IF(BOOST_PP_ITERATION()) BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), class A)>
 int call(R(*f)(BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), A)), lua_State* L, const Policies* policies)
@@ -413,7 +417,9 @@ int call(R(*f)(BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), A)), lua_State* L, con
 		return match_params(L, 1, static_cast<ParameterTypes*>(0), policies);
 	}
 
-
-
+#endif
+#endif
+#endif
+#endif
 #endif
 

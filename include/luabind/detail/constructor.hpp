@@ -94,7 +94,8 @@ namespace luabind { namespace detail
 #endif // LUABIND_CONSTRUCTOR_HPP_INCLUDED
 
 
-#elif BOOST_PP_ITERATION_FLAGS() == 1
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 1
 
 
 #define LUABIND_DECL(z, n, text) \
@@ -172,5 +173,6 @@ namespace luabind { namespace detail
 #undef LUABIND_PARAM
 #undef LUABIND_DECL
 
+#endif
 #endif // LUABIND_CONSTRUCTOR_HPP_INCLUDED
 

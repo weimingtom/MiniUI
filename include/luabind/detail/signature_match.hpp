@@ -148,7 +148,8 @@ namespace luabind { namespace detail
 
 #endif // LUABIND_SIGNATURE_MATCH_HPP_INCLUDED
 
-#elif BOOST_PP_ITERATION_FLAGS() == 1
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 1
 
 #define N BOOST_PP_ITERATION()
 
@@ -224,7 +225,8 @@ namespace luabind { namespace detail
 
 #undef N
 
-#elif BOOST_PP_ITERATION_FLAGS() == 2
+#else
+#if BOOST_PP_ITERATION_FLAGS() == 2
 
 #define N BOOST_PP_ITERATION()
 
@@ -255,6 +257,7 @@ namespace luabind { namespace detail
 	};
 
 #undef N
-
+#endif
+#endif
 #endif
 

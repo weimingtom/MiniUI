@@ -1,6 +1,7 @@
 //#include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <stdlib.h>
 
 #include "Float.h"
 
